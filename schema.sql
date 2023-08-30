@@ -2,7 +2,7 @@
 CREATE DATABASE vet_clinic;
 
 CREATE TABLE animals (
-    id INTEGER,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(50),
     date_of_birth DATE,
     secape_attempts INTEGER,
