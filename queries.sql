@@ -74,3 +74,47 @@ SELECT  MAX(weight_kg), MIN(weight_kg), species FROM animals
 GROUP BY species;
 
 SELECT AVG(secape_attempts),species FROM animals WHERE '1990-01-01'<date_of_birth AND date_of_birth<'2000-01-01' GROUP BY species;
+
+
+
+
+
+-- answer some quesitioins;
+SELECT a.name 
+FROM animals a 
+JOIN owners o ON a.owner_id = o.id
+WHERE o.full_name = 'Melody pond';
+SELECT a.name 
+FROM animals a 
+JOIN species s ON a.species_id = s.id;
+
+SELECT o.full_name, a.name 
+FROM owners o
+LEFT JOIN animals a ON o.id = a.owner_id
+ORDER BY o.id;
+
+
+SELECT s.name AS species_name, COUNT(a.id) AS animal_count
+FROM species s
+LEFT JOIN animals a ON s.id = a.species_id
+GROUP BY s.name
+ORDER BY species_name;
+
+
+SELECT a.name AS animal_name
+FROM animals a
+JOIN species s ON a.species_id = s.id
+JOIN owners o ON a.owner_id = o.id
+WHERE s.name = 'Digimon' AND o.full_name = 'Jennifer Orwell';
+
+SELECT a.name As animal_name
+FROM animals a 
+JOIN owners o ON a.owner_id = o.id
+WHERE o.full_name = 'Dean Winchester' and a.secape_attempts = 0;
+
+SELECT o.full_name, COUNT(a.id) AS total_animals
+FROM owners o
+LEFT JOIN animals a ON o.id = a.owner_id
+GROUP BY o.full_name
+ORDER BY total_animals DESC
+LIMIT 1;
