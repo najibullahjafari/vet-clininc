@@ -42,9 +42,9 @@ INSERT INTO owners(full_name, age) VALUES ('Jennifer Orwell', 19);
 INSERT INTO owners(full_name, age) VALUES ('Bob', 45);
 INSERT INTO owners(full_name, age) VALUES ('Melody pond', 77);
 
-INSERT INTO owners(full_name, age) VALUES ('Deian watchster', 14);
+INSERT INTO owners(full_name, age) VALUES ('Dean Winchester', 14);
 
-INSERT INTO owners(full_name, age) VALUES ('Jodie Wittakar', 38);
+INSERT INTO owners(full_name, age) VALUES ('Jodie Whittaker', 38);
 
 
 
