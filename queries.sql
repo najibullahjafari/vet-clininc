@@ -12,3 +12,65 @@ SELECT (name, secape_attempts) FROM animals WHERE weight_kg > 10.5;
 SELECT * FROM animals WHERE neutered = TRUE;
 
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 and 17.3;
+
+
+
+
+-- Defining the species
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+SELECT species from animals;
+ROLLBACK;
+SELECT species from animals;
+
+BEGIN;
+UPDATE animals SET species = 'digimon' WHERE name = '%mon';
+UPDATE animals SET species = 'pokemon' WHERE species = NULL;
+SELECT * FROM animals;
+COMMIT;
+SELECT species from animals;
+
+
+
+
+
+-- deleting and ROLLBACK
+BEGIN;
+DELETE FROM animals;
+SELECT * FROM animals;
+ROLLBACK;
+SELECT COUNT(*) FROM animals;
+
+
+
+
+-- DELETE ANIMALS WITH CONDITIONS
+BEGIN;
+DELETE  FROM animals
+WHERE date_of_birth > '2022-01-01';
+SAVEPOINT SP1;
+SELECT * FROM animals;
+UPDATE animals SET weight_kg = weight_kg *-1;
+ROLLBACK TO SP1;
+UPDATE animals SEt weight_kg= weight_kg * -1 WHERE weight_kg<0;
+
+COMMIT;
+
+
+
+
+-- ANSWER SOME QUESTIONS
+
+SELECT count(*) FROM animals ;
+SELECT * FROM animals WHERE secape_attempts = 0;
+
+SELECT avg(weight_kg) FROM animals;
+
+SELECT MAX(secape_attempts), neutered
+FROM animals
+GROUP BY neutered;
+
+SELECT  MAX(weight_kg), MIN(weight_kg), species FROM animals
+GROUP BY species;
+
+SELECT AVG(secape_attempts),species FROM animals WHERE '1990-01-01'<date_of_birth AND date_of_birth<'2000-01-01' GROUP BY species;
