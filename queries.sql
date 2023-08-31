@@ -13,34 +13,51 @@ SELECT * FROM animals WHERE neutered = TRUE;
 
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 and 17.3;
 
+
+
+
 -- Defining the species
 BEGIN;
 UPDATE animals SET species = 'unspecified';
+SELECT species from animals;
 ROLLBACK;
+SELECT species from animals;
 
 BEGIN;
 UPDATE animals SET species = 'digimon' WHERE name = '%mon';
 UPDATE animals SET species = 'pokemon' WHERE species = NULL;
 SELECT * FROM animals;
 COMMIT;
+SELECT species from animals;
+
+
+
+
 
 -- deleting and ROLLBACK
 BEGIN;
 DELETE FROM animals;
 SELECT * FROM animals;
 ROLLBACK;
+SELECT COUNT(*) FROM animals;
+
+
+
 
 -- DELETE ANIMALS WITH CONDITIONS
 BEGIN;
 DELETE  FROM animals
 WHERE date_of_birth > '2022-01-01';
+SAVEPOINT SP1;
 SELECT * FROM animals;
 UPDATE animals SET weight_kg = weight_kg *-1;
-ROLLBACK;
+ROLLBACK TO SP1;
 UPDATE animals SEt weight_kg= weight_kg * -1 WHERE weight_kg<0;
 
 COMMIT;
-ROLLBACK;
+
+
+
 
 -- ANSWER SOME QUESTIONS
 

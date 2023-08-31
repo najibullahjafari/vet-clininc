@@ -10,3 +10,5 @@ ALTER TABLE animals set
     neutered BOOLEAN,
     weight_kg DECIMAL
 );
+
+ALTER Table animals ADD COLUMN species VARCHAR(255);
