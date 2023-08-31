@@ -1,7 +1,8 @@
 /* Database schema to keep the structure of entire database. */
 CREATE DATABASE vet_clinic;
 
-CREATE TABLE animals (
+ALTER TABLE animals set
+(
     id SERIAL PRIMARY KEY,
     name VARCHAR(50),
     date_of_birth DATE,
