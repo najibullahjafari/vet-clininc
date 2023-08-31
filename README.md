@@ -81,6 +81,12 @@ Clone this repository to your desired folder:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Future Features
+
+- I will make the full web page for Vet Clinic.
+- The Front-end of page will be developed by react.
+- I will use CSS3 and bootstrap.
+
 
 <!-- CONTRIBUTING -->
 
