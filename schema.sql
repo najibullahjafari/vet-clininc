@@ -26,3 +26,17 @@ ADD COLUMN species_id INTEGER REFERENCES species(id);
 
 ALTER TABLE animals
 ADD COLUMN owner_id INTEGER REFERENCES owners(id);
+
+CREATE Table vets(id SERIAL PRIMARY KEY, name VARCHAR(50), age INTEGER, date_of_graduation DATE);
+
+CREATE Table specializations (specialization_id SERIAL PRIMARY KEY, vet_id INT, species_id INT,
+Foreign Key (vet_id) REFERENCES  vets(id),
+Foreign Key (species_id) REFERENCES species(id));
+
+CREATE TABLE visits(
+visits_id SERIAL PRIMARY KEY,
+animals_id INT,
+vets_id INT,
+visits_date DATE,
+Foreign Key (vets_id) REFERENCES vets(id),
+Foreign Key (animals_id) REFERENCES animals(id));
