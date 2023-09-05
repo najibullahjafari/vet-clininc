@@ -29,6 +29,9 @@
 
 # 📖 [Vet Clinic] <a name="about-project"></a>
 **[Vet Clinic]** is a repo of SQL queries that can build the database for Vet Clinic web page.
+Here you can see the ERD of vet clinic
+![vet_clinic-erd](https://github.com/najibullahjafari/vet-clininc/assets/121656832/c3f6bd8e-101a-46fa-a4ed-56be49553e2a)
+
 
 ## 🛠 Built With <a name="built-with"></a>
 ### Tech Stack <a name="tech-stack"></a>
