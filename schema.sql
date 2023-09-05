@@ -33,6 +33,7 @@ CREATE Table specializations (specialization_id SERIAL PRIMARY KEY, vet_id INT, 
 Foreign Key (vet_id) REFERENCES  vets(id),
 Foreign Key (species_id) REFERENCES species(id));
 
+
 CREATE TABLE visits(
 visits_id SERIAL PRIMARY KEY,
 animals_id INT,
@@ -40,3 +41,12 @@ vets_id INT,
 visits_date DATE,
 Foreign Key (vets_id) REFERENCES vets(id),
 Foreign Key (animals_id) REFERENCES animals(id));
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+-- to decrease the excution of first query:
+CREATE INDEX ind_animal_id ON visits(animals_id);
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits WHERE animals_id = 4;
+CREATE INDEX id_vet ON visits(vets_id);
+EXPLAIN ANALYZE SELECT * FROM visits WHERE vets_id = 2;
+CREATE INDEX emial_id ON owners(email);
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
